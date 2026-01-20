@@ -283,78 +283,17 @@ input:-webkit-autofill {
 
 
 
+
 @keyframes floatParticles {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(20px, -10px, 0) scale(1.05);
-  }
-  100% {
-    transform: translate3d(-10px, 15px, 0) scale(1.02);
-  }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(20px, -10px, 0) scale(1.05); }
+  100% { transform: translate3d(-10px, 15px, 0) scale(1.02); }
 }
 
 @keyframes floatParticlesDelayed {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-25px, 10px, 0) scale(1.08);
-  }
-  100% {
-    transform: translate3d(15px, -15px, 0) scale(1.03);
-  }
-}
-
-.animate-particles {
-  animation: floatParticles 16s ease-in-out infinite alternate;
-}
-
-.animate-particles-delayed {
-  animation: floatParticlesDelayed 20s ease-in-out infinite alternate;
-}
-
-@keyframes scrollGlow {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-}
-
-.animate-scroll {
-  animation: scrollGlow 1.9s ease-in-out infinite;
-}
-@keyframes floatParticles {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(20px, -10px, 0) scale(1.05);
-  }
-  100% {
-    transform: translate3d(-10px, 15px, 0) scale(1.02);
-  }
-}
-
-@keyframes floatParticlesDelayed {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-25px, 10px, 0) scale(1.08);
-  }
-  100% {
-    transform: translate3d(15px, -15px, 0) scale(1.03);
-  }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-25px, 10px, 0) scale(1.08); }
+  100% { transform: translate3d(15px, -15px, 0) scale(1.03); }
 }
 
 .animate-particles {
@@ -366,18 +305,9 @@ input:-webkit-autofill {
 }
 
 @keyframes scrollGlow {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  50% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { transform: translateY(0%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
 }
 
 .animate-scroll {

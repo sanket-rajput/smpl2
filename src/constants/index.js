@@ -314,7 +314,7 @@ export const navItems = [
       id: 'pradnya',
       prize: "Total Cash prizes worth &#8377;7 Lakh",
       note1: `🔹Judge's decision will be final.`,
-      note3: `🔹Already registered candidatess need not register again.`,
+      note3: `🔹Already registered candidates need not register again.`,
       schedule: "March 21, 2026",
       criteria: `Junior Level - First or Second year students of any undergraduate degree/course.#$Senior Level - Third and Final year students of any undergraduate degree/course.`,
       logo: pradnya,
@@ -445,9 +445,9 @@ export const navItems = [
   };
 
    const ruleBookLinks = new Map([
-    ["impetus", "https://drive.google.com/file/d/1DTuHnhVu7lB86bv3Q9EEftgazO1n9-p4/view?usp=sharing?usp=sharing"],
-    ["concepts", "https://drive.google.com/file/d/1LM-MSPiFd6zu553_E0KYUneLgTXme90U/view?usp=sharing?usp=sharing"],
-    ["pradnya", "https://drive.google.com/file/d/1rn0ZefC-s9GLbdRhFsHmfqaFX4hlw-5r/view?usp=sharing?usp=sharing"],
+    ["impetus", "https://drive.google.com/file/d/1DTuHnhVu7lB86bv3Q9EEftgazO1n9-p4/view?usp=sharing"],
+    ["concepts", "https://drive.google.com/file/d/1LM-MSPiFd6zu553_E0KYUneLgTXme90U/view?usp=sharing"],
+    ["pradnya", "https://drive.google.com/file/d/1rn0ZefC-s9GLbdRhFsHmfqaFX4hlw-5r/view?usp=sharing"],
   ])
   const faculty = [
     {
