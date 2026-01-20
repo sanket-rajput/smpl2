@@ -127,8 +127,8 @@ const handleSubmit = async (e) => {
       ticket: ticketToSend,
       data: updatedFormData,
     }).unwrap();
-console.log("✅ Step 1 backend response:", response);
-console.log("✅ Ticket stored:", response.ticket);
+// console.log("✅ Step 1 backend response:", response);
+// console.log("✅ Ticket stored:", response.ticket);
 
     // ✅ Save ticket returned by backend
     window.localStorage.setItem("ticket", response.ticket);

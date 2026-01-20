@@ -362,7 +362,7 @@ const items = [
     flex items-center justify-between text-[10px]"
   >
     <p className="uppercase tracking-[0.25em] text-slate-200/90">
-      Event 20-22 march 2026
+      Mark the Dates: 20–22 March 2026
     </p>
 
     <div className="flex items-center gap-1">
