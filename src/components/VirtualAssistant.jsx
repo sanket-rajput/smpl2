@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
+// import React from "react";
+// import { useEffect } from "react";
+// import { useState, useMemo } from "react";
 import { useMemo } from "react";
 
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const VirtualAssistant = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // -----------------------------
   // MESSAGE ROTATION + TYPING FX
   // -----------------------------
-  const messages = [
+  // const messages = [
     // "Hello 👋",
     // "How can I assist you today?",
     // "Need help with schedules or events? 📅",
     // "Ask me anything about INC 2026 ⚡",
     // "I'm here to guide you 🤖",
-  ];
+  // ];
 
-  const [messageIndex, setMessageIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
+  // const [messageIndex, setMessageIndex] = useState(0);
+  // const [displayText, setDisplayText] = useState("");
 
 
   const particles = useMemo(() => {

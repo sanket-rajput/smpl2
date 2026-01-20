@@ -30,6 +30,14 @@ const Register = () => {
   const nextStep = () => setCurrentStep((prev) => prev + 1);
   const prevStep = () => setCurrentStep((prev) => prev - 1);
 
+  // Run effect before any early returns
+  useEffect(() => {
+    if (event === "pradnya") {
+      setCurrentStep(1);
+      setSteps(pSteps);
+    }
+  }, [event]);
+
   // Get event data safely
   const eventData = eventsData[event];
 
@@ -44,13 +52,6 @@ const Register = () => {
       </div>
     );
   }
-
-  useEffect(() => {
-    if (event === "pradnya") {
-      setCurrentStep(1);
-      setSteps(pSteps);
-    }
-  }, [event]);
 
   return (
     <>

@@ -1,5 +1,5 @@
-import { sponsors } from "../constants";
-import { styles } from "../styles";
+// import { sponsors } from "../constants";
+// import { styles } from "../styles";
 import { cn } from "../lib/utils";
 import {
   createContext,

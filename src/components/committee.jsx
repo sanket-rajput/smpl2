@@ -4,7 +4,7 @@ import { styles } from '../styles';
 import { faculty, web, core } from '../constants';
 import { Accordion, AccordionHeader, AccordionItem, AccordionPanel } from './ui/accordian';
 import { cn } from "../lib/utils";
-import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
+// import { IconBrandGithubFilled, IconBrandInstagramFilled, IconBrandLinkedinFilled } from '@tabler/icons-react';
 import { TypewriterEffectSmooth } from './ui/typewriter-effect';
 import scrollToTop from '../utils/scrollToTop';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
@@ -18,12 +18,13 @@ const Committee = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  if (!id) return null;
-
+  // Run all hooks before any conditional returns
   useEffect(() => {
     scrollToTop();
     setActiveCommittee(id);
   }, [id]);
+
+  if (!id) return null;
 
   const committees = { faculty, core, web };
   const allowed = ['core', 'web', 'faculty'];
@@ -170,114 +171,113 @@ const Faculty = ({ data: faculty }) => {
 /* ------------------------ WEB / CORE SECTION ---------------------- */
 /* ------------------------------------------------------------------ */
 
-const WebnCore = ({ data }) => {
-  const handleLinkClick = (link) => window.open(link, "_blank");
+// const WebnCore = ({ data }) => {
+//   const handleLinkClick = (link) => window.open(link, "_blank");
 
-  return (
-    <div className='flex flex-col items-center w-full gap-[4rem]'>
-      {data.map(team => (
-        <div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
-          
-          <div className='bg-tertiary py-14 w-full relative'>
-            <h3 className='sm:text-3xl font-semibold absolute left-1/2 -translate-x-1/2 sm:-top-6 -top-5 bg-black-100 border border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>
-              {team.team}
-            </h3>
+//   return (
+//     <div className='flex flex-col items-center w-full gap-[4rem]'>
+//       {data.map(team => (
+//         <div className='flex flex-col items-center gap-10 bg-tertiary w-full p-px bg-gradient-to-r from-dark-blue via-light-blue to-orange-100' key={team.team}>
+//           
+//           <div className='bg-tertiary py-14 w-full relative'>
+//             <h3 className='sm:text-3xl font-semibold absolute left-1/2 -translate-x-1/2 sm:-top-6 -top-5 bg-black-100 border border-white-100 max-sm:w-[80%] px-4 py-1 text-xl text-center'>
+//               {team.team}
+//             </h3>
 
-            <div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
-              {team.members.map(m => (
-                <div className='sm:w-[300px] w-[270px]' key={m.name}>
-                  
-                  <BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
-                    
-                    <img
-                      loading='lazy'
-                      src={m.photo}
-                      alt="member"
-                      className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
-                    />
+//             <div className='flex flex-wrap w-full justify-center items-stretch gap-10'>
+//               {team.members.map(m => (
+//                 <div className='sm:w-[300px] w-[270px]' key={m.name}>
+//                   
+//                   <BackgroundGradient className="p-4 bg-black-100 flex flex-col items-center gap-4">
+//                     
+//                     <img
+//                       loading='lazy'
+//                       src={m.photo}
+//                       alt="member"
+//                       className="rounded-full max-sm:h-[150px] max-sm:w-[150px] w-[180px] h-[180px] object-cover object-top"
+//                     />
 
-                    <div>
-                      <h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
-                      <p className='text-sm text-secondary text-center'>{m.post}</p>
-                    </div>
+//                     <div>
+//                       <h4 className='text-2xl font-bold text-white-100'>{m.name}</h4>
+//                       <p className='text-sm text-secondary text-center'>{m.post}</p>
+//                     </div>
 
-                    <div className='flex items-center gap-4'>
-                      <IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
-                      <IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
-                      <IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
-                    </div>
+//                     <div className='flex items-center gap-4'>
+//                       <IconBrandLinkedinFilled onClick={() => handleLinkClick(m.linkedin)} className='cursor-pointer' />
+//                       <IconBrandGithubFilled onClick={() => handleLinkClick(m.github)} className='cursor-pointer' />
+//                       <IconBrandInstagramFilled onClick={() => handleLinkClick(m.instagram)} className='cursor-pointer' />
+//                     </div>
 
-                  </BackgroundGradient>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};
+//                   </BackgroundGradient>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
 /* ------------------------------------------------------------------ */
 /* ---------------------- BACKGROUND GRADIENT WRAPPER --------------- */
 /* ------------------------------------------------------------------ */
 
-const BackgroundGradient = ({
-  children,
-  className,
-  containerClassName,
-  animate = true
-}) => {
-  const variants = {
-    initial: { backgroundPosition: "0% 50%" },
-    animate: { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] },
-  };
+// const BackgroundGradient = ({
+//   children,
+//   className,
+//   containerClassName,
+//   animate = true
+// }) => {
+//   const variants = {
+//     initial: { backgroundPosition: "0% 50%" },
+//     animate: { backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] },
+//   };
 
-  return (
-    <div className={cn("relative p-[1px] group", containerClassName)}>
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? "initial" : undefined}
-        animate={animate ? "animate" : undefined}
-        transition={
-          animate
-            ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
-            : undefined
-        }
-        style={{
-          backgroundSize: animate ? "200% 200%" : undefined,
-        }}
-        className={cn(
-          "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
-          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
-        )}
-      />
+//   return (
+//     <div className={cn("relative p-[1px] group", containerClassName)}>
+//       <motion.div
+//         variants={animate ? variants : undefined}
+//         initial={animate ? "initial" : undefined}
+//         animate={animate ? "animate" : undefined}
+//         transition={
+//           animate
+//             ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
+//             : undefined
+//         }
+//         style={{
+//           backgroundSize: animate ? "200% 200%" : undefined,
+//         }}
+//         className={cn(
+//           "absolute inset-0 z-[1] opacity-30 group-hover:opacity-100 blur-md transition duration-500",
+//           "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+//         )}
+//       />
 
-      <motion.div
-        variants={animate ? variants : undefined}
-        initial={animate ? "initial" : undefined}
-        animate={animate ? "animate" : undefined}
-        transition={
-          animate
-            ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
-            : undefined
-        }
-        style={{
-          backgroundSize: animate ? "200% 200%" : undefined,
-        }}
-        className={cn(
-          "absolute inset-0 z-[1]",
-          "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
-        )}
-      />
+//       <motion.div
+//         variants={animate ? variants : undefined}
+//         initial={animate ? "initial" : undefined}
+//         animate={animate ? "animate" : undefined}
+//         transition={
+//           animate
+//             ? { duration: 3, repeat: Infinity, repeatType: "reverse" }
+//             : undefined
+//         }
+//         style={{
+//           backgroundSize: animate ? "200% 200%" : undefined,
+//         }}
+//         className={cn(
+//           "absolute inset-0 z-[1]",
+//           "bg-[linear-gradient(90deg,#1746A2,#5F9DF7,#d4621c,#5F9DF7,#1746A2)]"
+//         )}
+//       />
 
-      <div className={cn("relative z-10", className)}>
-        {children}
-      </div>
-    </div>
-  );
-};
+//       <div className={cn("relative z-10", className)}>
+//         {children}
+//       </div>
+//     </div>
+//   );
+// };
 
 /* ------------------------------------------------------------------ */
 /* ------------------------- SPOTLIGHT EFFECT ----------------------- */

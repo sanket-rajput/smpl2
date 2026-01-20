@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+// import React from "react";
+// import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import scrollToTop from "../utils/scrollToTop";
 import { IncCanvas } from "./canvas";
-import RadarCountdown from "./ui/RadarCountdown";
-import { impetus_b, concepts_b, pradnya_b, pict, logo } from "../assets";
+// import RadarCountdown from "./ui/RadarCountdown";
+import { impetus_b, concepts_b, pradnya_b } from "../assets";
+// import { pict, logo } from "../assets";
 
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
-import { navItems } from "../constants";
+// import { navItems } from "../constants";
 import VirtualAssistant from "./VirtualAssistant";
-import GlassBlueOrbit from "./GlassBlueOrbit";
+// import GlassBlueOrbit from "./GlassBlueOrbit";
 
 
 import CircularVerticalGallery from "./ui/CircularVerticalGallery";
+// import { useState } from "react";
+import { useEffect } from "react";
 
 
 
@@ -23,15 +28,14 @@ import CircularVerticalGallery from "./ui/CircularVerticalGallery";
 
 const Hero = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const location = useLocation();
+  // const [menuOpen, setMenuOpen] = useState(false);
 
-  
-const items = [
-  { image: impetus_b },
-  { image: concepts_b },
-  { image: pradnya_b },
-];
+// const items = [
+//   { image: impetus_b },
+//   { image: concepts_b },
+//   { image: pradnya_b },
+// ];
 
 
   useEffect(() => {
@@ -39,13 +43,13 @@ const items = [
   }, []);
 
   // Smart navigation system: supports hash + real routes
-  const handleNav = (item) => {
-    if (item.type === "route") {
-      navigate(item.path);
-    } else {
-      window.location.href = item.id === "home" ? "/" : `/#${item.id}`;
-    }
-  };
+  // const handleNav = (item) => {
+  //   if (item.type === "route") {
+  //     navigate(item.path);
+  //   } else {
+  //     window.location.href = item.id === "home" ? "/" : `/#${item.id}`;
+  //   }
+  // };
 
   return (
     <section className="relative w-full min-h-screen bg-[#020712] text-white overflow-hidden">
@@ -167,7 +171,7 @@ const items = [
             {/* MOBILE */}
             <div className="flex flex-col items-center justify-center gap-2 sm:hidden">
               <p className="text-[16px] tracking-[0.28em] text-slate-100/85 uppercase mb-2 text-center">
-                SCTR'S PUNE INSTITUTE OF COMPUTER TECHNOLOGY
+                SCTR&apos;S PUNE INSTITUTE OF COMPUTER TECHNOLOGY
               </p><p className="text-[11px] tracking-[0.28em] text-slate-100/85 uppercase mb-2 text-center">
                   PRESENTS
               </p>

@@ -20,12 +20,12 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import {
   resetForm,
-  submit_step1,
-  submit_step2,
-  submit_step3
+  submit_step1
+  // submit_step2,
+  // submit_step3
 } from "../../../app/features/form/formSlice";
 
-import Loader from "../../ui/Loader";
+// import Loader from "../../ui/Loader";
 import scrollToTop from "../../../utils/scrollToTop";
 import { formatPhoneNumber } from "../utils";
 
@@ -48,7 +48,7 @@ const initialState = {
 };
 
 const ProjectDetailsFormStep = ({ event, nextStep }) => {
-  const ename = window.localStorage.getItem("event_name");
+  // const ename = window.localStorage.getItem("event_name");
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const [abstractWordCount, setAbstractWordCount] = useState(0);

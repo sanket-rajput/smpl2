@@ -1,5 +1,6 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+// import { useAnimation } from "framer-motion";
+// import { useEffect } from "react";
 
 const items = [
   { icon: "/icons/dev.png", title: "Development", text: "Modern scalable apps." },
