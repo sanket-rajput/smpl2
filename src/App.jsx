@@ -23,8 +23,8 @@ import { AnimatePresence } from "framer-motion";
 import Preloader from "./components/Preloader";
 
 // Lazy components
-const Register = lazy(() => import("./components/Register"));
-// const Committee = lazy(() => import("./components/committee"));
+const Register = lazy(() => import("./components/Register.jsx"));
+const Committee = lazy(() => import("./components/committee"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
 // const Results = lazy(() => import("./components/Results"));
 
@@ -119,7 +119,7 @@ const App = () => {
 
   return (
     <MobileContext.Provider value={isMobile}>
-      
+
       {/* Preloader only when on "/" and still loading */}
       {location.pathname === "/" && loading && (
         <AnimatePresence>

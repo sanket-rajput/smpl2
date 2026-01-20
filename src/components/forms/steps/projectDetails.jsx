@@ -3,6 +3,8 @@ import { Input } from "../../ui/input";
 import { Select } from "../../ui/select";
 import { Label } from "../../ui/label";
 import FormButton from "../FormButton";
+import { useStepOneMutation } from "../../../app/services/formAPI";
+
 
 import {
   validate_isEmpty,
@@ -80,27 +82,68 @@ const ProjectDetailsFormStep = ({ event, nextStep }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    // Auto-set project type for NOVA
-    if (event === "nova") {
-      formData.project_type = "software";
-    }
+  //   // Auto-set project type for NOVA
+  //   if (event === "nova") {
+  //     formData.project_type = "software";
+  //   }
 
-    // Validation
-    if (!validate(event, formData)) {
-      // Save data locally (Redux)
-      dispatch(submit_step1(formData));
+  //   // Validation
+  //   if (!validate(event, formData)) {
+  //     // Save data locally (Redux)
+  //     dispatch(submit_step1(formData));
 
-      // Move to next step
-      toast.success("Project details saved (local mode)");
-      nextStep();
-      return;
-    }
+  //     // Move to next step
+  //     toast.success("Project details saved (local mode)");
+  //     nextStep();
+  //     return;
+  //   }
 
+  //   toast.error("Fill all the required details correctly!");
+  // };
+  const [stepOne, { isLoading }] = useStepOneMutation();
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const updatedFormData =
+    event === "nova" ? { ...formData, project_type: "software" } : formData;
+
+  if (validate(event, updatedFormData)) {
     toast.error("Fill all the required details correctly!");
-  };
+    return;
+  }
+
+  try {
+    const storedEvent = window.localStorage.getItem("event_name");
+    const storedTicket = window.localStorage.getItem("ticket") || "";
+
+    const ticketToSend = storedEvent === event ? storedTicket : "";
+
+    const response = await stepOne({
+      event_name: event,
+      ticket: ticketToSend,
+      data: updatedFormData,
+    }).unwrap();
+console.log("✅ Step 1 backend response:", response);
+console.log("✅ Ticket stored:", response.ticket);
+
+    // ✅ Save ticket returned by backend
+    window.localStorage.setItem("ticket", response.ticket);
+    window.localStorage.setItem("event_name", event);
+
+    // ✅ Save to redux too
+    dispatch(submit_step1(updatedFormData));
+
+    toast.success("Project details saved");
+    nextStep();
+  } catch (error) {
+    console.error(error);
+    toast.error(error?.data?.message || error?.message || "Something went wrong");
+  }
+};
 
   return (
     <>
@@ -271,7 +314,7 @@ const ProjectDetailsFormStep = ({ event, nextStep }) => {
                 onChange={handleChange}
                 validate={validate_isEmpty.bool}
                 errorMessage={validate_isEmpty.message()}
-                placeholder="Eg. T4014"
+                placeholder="Eg. 014"
               />
             </div>
           )}
@@ -355,7 +398,9 @@ const ProjectDetailsFormStep = ({ event, nextStep }) => {
 
         {/* Submit Button */}
         <div className="sm:col-span-2 justify-self-end">
-          <FormButton loading={false} type="submit" />
+          {/* <FormButton loading={false} type="submit" /> */}
+          <FormButton loading={isLoading} type="submit" />
+
         </div>
       </form>
     </>

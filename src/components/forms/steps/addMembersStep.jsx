@@ -95,7 +95,9 @@ const AddMemberStep = ({ event, prevStep, nextStep, isPradnya }) => {
       const tempMemberDetails = { ...newMember };
       delete tempMemberDetails.member_id;
       memberFormData.append("body", JSON.stringify(tempMemberDetails));
-      const tempTicket = (event === ename) ? ticket : '';
+      const storedTicket = window.localStorage.getItem("ticket") || "";
+const tempTicket = (event === ename) ? storedTicket : "";
+
       const response = await addMember({ event_name: event, ticket: tempTicket, data: memberFormData }).unwrap()
       window.localStorage.setItem('ticket', response.ticket);
       window.localStorage.setItem('event_name', event)

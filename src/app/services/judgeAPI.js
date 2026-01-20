@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // const baseURL = ("https://api.pyush.site") + "/judge";
-const baseURL = ("https://inc-2026-backend.onrender.com") + "/judge";
+// const baseURL = ("https://inc-2026-backend.onrender.com") + "/judge";
+ const baseURL = "https://inc-2026-backend.onrender.com/judge";
 // const baseURL = "http://localhost:3001/judge";
 
 export const judgeAPI = createApi({
